@@ -28,8 +28,8 @@ function randomMegaId(length = 6, numberLength = 4) {
 async function uploadCredsToMega(credsPath) {
     try {
         const storage = await new Storage({
-            email: 'nexusxd.bot@gmail.com', // Your Mega A/c Email Here
-            password: 'malvin266' // Your Mega A/c Password Here
+            email: 'caspertechke@gmail.com', // Your Mega A/c Email Here
+            password: 'caspertechke' // Your Mega A/c Password Here
         }).ready;
         console.log('Mega storage initialized.');
 
@@ -83,7 +83,7 @@ router.get('/', async (req, res) => {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');
                 const code = await Malvin.requestPairingCode(num);
-                console.log(`Your Code: ${code}`);
+                console.log(`Connect to CASPER-TECH BOTS this Code on WhatsApp: ${code}`);
 
                 if (!res.headersSent) {
                     res.send({ code });
@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
 
                     const megaUrl = await uploadCredsToMega(filePath);
                     const sid = megaUrl.includes("https://mega.nz/file/")
-                        ? 'botname-MD~' + megaUrl.split("https://mega.nz/file/")[1]
+                        ? 'CASPER-TECH:~' + megaUrl.split("https://mega.nz/file/")[1]
                         : 'Error: Invalid URL';
 
                     console.log(`Session ID: ${sid}`);
@@ -113,22 +113,22 @@ router.get('/', async (req, res) => {
                     const session = await Malvin.sendMessage(Malvin.user.id, { text: sid });
 
                     const MALVIN_TEXT = `
-🎉 *Welcome to Botname!* 🚀  
+🎉 *𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 𝗖𝗔𝗦𝗣𝗘𝗥 𝗧𝗘𝗖𝗛 𝗕𝗢𝗧𝗦!* 🚀  
 
 🔒 *Your Session ID* is ready!  ⚠️ _Keep it private and secure — dont share it with anyone._ 
 
 🔑 *Copy & Paste the SESSION_ID Above*🛠️ Add it to your environment variable: *SESSION_ID*.  
 
 💡 *Whats Next?* 
-1️⃣ Explore all the cool features of botname.
+1️⃣ Explore all the cool features of 𝙲𝙰𝚂𝙿𝙴𝚃-𝚇𝙼𝙳.
 2️⃣ Stay updated with our latest releases and support.
 3️⃣ Enjoy seamless WhatsApp automation! 🤖  
 
-🔗 *Join Our Support Channel:* 👉 [Click Here to Join](https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z) 
+🔗 *Join Our Support Channel:* 👉 [Click Here to Join](https://whatsapp.com/channel/0029VazABxMJZg40sEZBX242) 
 
-⭐ *Show Some Love!* Give us a ⭐ on GitHub and support the developer of: 👉 [Malvin King GitHub Repo](https://github.com/kingmalvn/)  
+⭐ *Show Some Love!* Give us a ⭐ on GitHub and support the developer of: 👉 [ CASPER-TECH GitHub Repo](https://github.com/Casper-Tech-ke/)  
 
-🚀 _Thanks for choosing BOTNAME — Let the automation begin!_ ✨`;
+🚀 _Thanks for choosing CASPER TECH — Let the automation begin!_ ✨`;
 
                     await Malvin.sendMessage(Malvin.user.id, { text: MALVIN_TEXT }, { quoted: session });
 
